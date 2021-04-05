@@ -1,0 +1,11 @@
+#!/bin/bash
+
+#$ -P bf528
+#$ -cwd
+
+source /etc/bashrc
+
+module load python/2.7.13
+module load multiqc
+
+multiqc #path to your samples directory
