@@ -1,0 +1,13 @@
+#$ -P bf528
+#$ -cwd
+#$ -pe omp 16
+#
+source /etc/bashrc
+
+module load gcc
+module load star/2.6.0c
+
+GENOMEDIR=/projectnb2/bf528/project_3/reference/rn4_STAR
+
+STAR --genomeDir $GENOMEDIR --runThreadN 16 --readFilesCommand zcat --outSAMtype BAM SortedByCoordinate --readFilesIn /projectnb2/bf528/users/saxophone/project3/"SRR1178023_1.fastq.gz" /projectnb2/bf528/users/saxophone/project3/"SRR1178023_2.fastq.gz" --outFileNamePrefix /projectnb/bf528/users/saxophone/project3/fastqs/star_output/SRR1178023_
+#depending on the name of the sample, I changed the name in between the quotation mark and the outFileNamePrefix
