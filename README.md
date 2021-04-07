@@ -33,3 +33,12 @@ By using the STAR aligner, each of the samples is aligned against the rat genome
 3. multiqc.sh
 
 Summary of combining all the data into a single convenient report. The multiqc.qsub script was submitted and as a result, the multiqc_report.html webpage was created where all the samples are analyzed. 
+
+Programmer:
+1. R script for section 3, prepping for DESeq and creating a featurecounts bar plot using the ggplot2 package.
+
+Reads in multiqc feature count output files to prep for DESeq analysis by concatenating all samples counts into one file against matching geneid.
+
+2 R script for section 4, running DESeq and creating histograms and volcano plots using ggplot package.
+
+Reads in the concatenated file from the section 3 R script and sets the gene IDs to row names. Eliminates counts of zero and consturcts the DESeq object. The results are shrunk and volcano plots created for each mode of action. P values are adjusted and counts of significant genes provided at a 0.05 adjp value threshold. Histograms for each mode of action are created.
