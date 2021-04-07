@@ -43,6 +43,15 @@ Reads in multiqc feature count output files to prep for DESeq analysis by concat
 
 Reads in the concatenated file from the section 3 R script and sets the gene IDs to row names. Eliminates counts of zero and consturcts the DESeq object. The results are shrunk and volcano plots created for each mode of action. P values are adjusted and counts of significant genes provided at a 0.05 adjp value threshold. Histograms for each mode of action are created.
 
+Analyst:
+1. run_limma.R
+
+This script reads in the sample information for microarray results of toxgroup 4, subsets the samples within the file and the full RMA matrix, performs differential expression analysis using limma package, outputs the results to a file for each sample, and generates a histogram and volcano plot for each sample. Signficant DE genes determined with a adjusted pvalue < 0.05 and |logFC| > 1.5
+
+2. run_conc.R
+
+This script reads in the DESeq2 and limma results files, maps the refSeq and probe IDs together, calculates concordance between results, generates two plots of concordance vs. number of differentially expressed genes in RNASeq (1) and microarray (2). The initial results tables are then subset into above-median and below-median for each sample and concordance of above-median and below-median genes are compared with the overall concordance using a barplot.
+
 Biologist: 
 1. Biologist.R 
 
